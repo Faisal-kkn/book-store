@@ -2,6 +2,7 @@
 import express from 'express'
 import axios from 'axios'
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
@@ -9,12 +10,16 @@ dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 const app = express();
 const port = process.env.PORT;
 
+app.use(cors({
+    origin: ['http://localhost:3000'] 
+}));
+
 app.use(express.json());
 
-
 app.get('/api/fetch-books', async (req, res) => {
+    console.log('ethi');
     try {
-        const response = await axios.get(`https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC?key=${process.env.GOOLGE_BOOK_API_KEY}`);
+        const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=peace&key=${process.env.GOOLGE_BOOK_API_KEY}&startIndex=6&maxResults=15`);
         res.json(response.data);
     } catch (error) {
         res.status(500).json({ error: 'An error occurred while fetching books from Google Books API.' });
