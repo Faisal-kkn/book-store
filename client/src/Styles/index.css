@@ -3,15 +3,22 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'MEllan PRC SemiBold', Arial, Helvetica, sans-serif;
   background: #f0eee2;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
+
 .right-sidebar {
   z-index: 999999;
 }
+
 .right-sidebar::after {
   content: '';
   position: absolute;
