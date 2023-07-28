@@ -2,7 +2,7 @@ import React from 'react';
 import { RiNotification4Line } from 'react-icons/ri';
 function RightSidebar() {
   return (
-    <div className='p-2 md:px-8 flex items-start justify-center gap-16 bg-white pt-5'>
+    <div className='p-2 md:px-8 items-start justify-center gap-16 bg-white pt-5 hidden lg:flex'>
       <div className='flex gap-3'>
         <img
           src='/profile.jpg'
