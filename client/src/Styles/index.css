@@ -1,0 +1,9 @@
+@import url(https://db.onlinewebfonts.com/c/c71022c068c4097911637b08c81f8a3c?family=MEllan+PRC+SemiBold);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'MEllan PRC SemiBold', Arial, Helvetica, sans-serif;
+}
