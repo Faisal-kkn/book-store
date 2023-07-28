@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Paths } from './path';
 import Layout from '../Components/Layout';
 import Home from '../Pages/HomePage';
+import ErrorPage from '../Pages/ErrorPage';
 
 export const AppRouter: React.FC = () => {
   return (
@@ -12,6 +13,14 @@ export const AppRouter: React.FC = () => {
         element={
           <Layout>
             <Home />
+          </Layout>
+        }
+      />
+      <Route
+        path={Paths.error}
+        element={
+          <Layout>
+            <ErrorPage />
           </Layout>
         }
       />
