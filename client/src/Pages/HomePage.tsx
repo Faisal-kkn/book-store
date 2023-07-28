@@ -40,7 +40,7 @@ const SearchForm = () => {
         <input
           type='text'
           id='voice-search'
-          className='border  outline-none text-gray-900 bg-transparent text-sm rounded-lg  focus:border-1 focus:border-gray-400/50 block w-full pl-10 p-2.5'
+          className='border-b-[1px] outline-none text-gray-900 bg-transparent text-sm focus:border-b-[1px] focus:border-gray-400/50 block w-full pl-10 p-2.5'
           placeholder='Search book name, author, edition...'
           required
         />
