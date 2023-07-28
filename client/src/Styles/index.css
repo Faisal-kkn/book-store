@@ -9,9 +9,11 @@ body {
   background: #f0eee2;
   overflow-x: hidden;
 }
+
 .right-sidebar {
   z-index: 999999;
 }
+
 .right-sidebar::after {
   content: '';
   position: absolute;

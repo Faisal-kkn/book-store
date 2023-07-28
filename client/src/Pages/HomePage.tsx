@@ -5,21 +5,21 @@ import { PiDotsThreeOutlineLight } from 'react-icons/pi';
 
 function HomePage() {
   return (
-    <div className='flex-1 ml-[170px]'>
+    <div className='flex-1 md:ml-[120px] lg:ml-[170px] md:pr-3 lg:pr-0 md:px-0 px-2'>
       <SearchForm />
-      <div className='mt-16 relative'>
-        <h1 className='text-[70px] leading-[81px]'>
+      <div className='mt-10 md:mt-16 relative'>
+        <h1 className='text-[50px] leading-[61px] md:text-[70px] md:leading-[81px]'>
           Happy reading, <br className='hidden md:block' /> Harvey
         </h1>
-        <p className='w-1/2 mt-4'>
+        <p className='md:w-1/2 mt-4'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eius odio ipsa assumenda quasi
           impedit, itaque velit sed adipisci vel ea cupiditate dolore voluptas nesciunt qui quod,
           labore, perferendis atque.
         </p>
-        <img src='/book.png' alt='' width='650px' className='absolute top-[-50px] right-[-364px]' />
-        <button className='bg-gray-700 text-gray-100 py-2 px-5 rounded-full mt-8 flex items-center gap-1 text-[14px]'>
+        <img src='/book.png' alt='' className='relative -z-10 md:z-0 mt-5 md:mt-0 md:absolute lg:w-[650px] lg:top-[-50px] lg:right-[-364px] md:top-[110px] md:right-[-5px] md:w-[340px] md:pr-0 pr-4 ' />
+        <button className=' -mt-10 mx-auto md:mx-0 z-20 bg-gray-700 text-gray-100 py-2 px-5 rounded-full md:mt-8 flex items-center gap-1 text-[14px]'>
           Start Reading
-          <BsBoxArrowInUpRight className='h-4 w-4 text-white' />
+          <BsBoxArrowInUpRight className='h-4 w-4 text-white'/>
         </button>
       </div>
       <Populer />
@@ -63,7 +63,7 @@ const Populer = () => {
   return (
     <>
       <Heading />
-      <div className='grid grid-cols-5 gap-8'>
+      <div className='grid grid-cols-2 gap-4 px-3 md:grid-cols-3 lg:grid-cols-5 md:gap-8'>
         <BookCard />
         <BookCard />
         <BookCard />
@@ -82,7 +82,7 @@ const Populer = () => {
 
 const Heading = () => {
   return (
-    <div className='mt-[70px] flex justify-between mb-5'>
+    <div className='mt-10 md:mt-[70px] flex justify-between mb-5'>
       <h2 className='text-[20px]'>Popular Now</h2>
       <PiDotsThreeOutlineLight className='h-8 w-8 text-gray-800 z-50' />
     </div>
