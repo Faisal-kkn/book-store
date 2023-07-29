@@ -8,22 +8,8 @@ import ErrorPage from '../Pages/ErrorPage';
 export const AppRouter: React.FC = () => {
   return (
     <Routes>
-      <Route
-        path={Paths.home}
-        element={
-          <Layout>
-            <Home />
-          </Layout>
-        }
-      />
-      <Route
-        path={Paths.error}
-        element={
-          <Layout>
-            <ErrorPage />
-          </Layout>
-        }
-      />
+      <Route path={Paths.home} element={<Layout> <Home /> </Layout>} />
+      <Route path={Paths.error} element={<ErrorPage />} />
     </Routes>
   );
 };

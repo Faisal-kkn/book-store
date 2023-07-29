@@ -2,7 +2,7 @@ import React from 'react'
 import { HeadingProps } from "../../Model/Book";
 import { PiDotsThreeOutlineLight } from 'react-icons/pi';
 
-export const Heading: React.FC<HeadingProps> = ({ title }) => {
+const Heading: React.FC<HeadingProps> = ({ title }) => {
     return (
         <div className='mt-10 md:mt-[30px] flex justify-between mb-5'>
             <h2 className='text-[20px]'>{title}</h2>
@@ -10,3 +10,5 @@ export const Heading: React.FC<HeadingProps> = ({ title }) => {
         </div>
     );
 };
+
+export default Heading
