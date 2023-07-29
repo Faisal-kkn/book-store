@@ -23,7 +23,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd Social-Media
+  cd book-store
 ```
 
 ### Run backend
