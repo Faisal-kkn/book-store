@@ -1,4 +1,13 @@
-import instance from '../Axios/Axios'
+import { apiService } from "../Axios/Axios";
+import { Books } from "../Model/Book";
 
-export const getBooks = () => instance.get(`/fetch-books`)
-export const searchBook = (data: string, page: number) => instance.get(`/search?q=${data}&page=${page}`)
+interface HttpGetResponse {
+    totalItems: number;
+    status: number;
+    data: any; // You can replace 'any' with the actual type of the data returned by the API
+    headers?: Record<string, string>;
+}
+
+export const getApi = (url: string): Promise<Books> => {
+    return apiService.httpGetService(url) as Promise<HttpGetResponse>;
+};
