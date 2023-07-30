@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Books } from "../../Model/Book";
-import { getBooks } from '../../Api/Requests';
+import { getApi } from '../../Api/Requests';
 import Heading from './Heading';
 import { BookCard } from './BookCard';
 
@@ -8,20 +8,12 @@ const Popular: React.FC = () => {
     const [books, setBooks] = useState<Books>({ items: [], totalItems: 0 });
 
     useEffect(() => {
-        fetchData();
-    }, []);
-
-    const fetchData = async () => {
-        try {
-            const response = await getBooks();
-            if (response.status !== 200) {
-                throw new Error('Network response was not ok');
-            }
-            setBooks(response?.data);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    };
+        getApi('/fetch-books').then((res: any) => {
+            setBooks(res);
+        }).catch(err => {
+            console.error('Error fetching data:', err);
+        })
+    }, [])
 
     return (
         <>
