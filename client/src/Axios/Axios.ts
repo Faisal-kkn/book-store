@@ -1,32 +1,42 @@
-import axios, { AxiosInstance as Instance, AxiosRequestConfig } from "axios";
+import axios, { AxiosResponse } from 'axios';
 
-// Assuming you have defined the backend URL in the environment variables.
-// Make sure to have the correct variable name defined in your ".env" file.
-const baseURL: string = process.env.REACT_APP_BACKEND_URL || "";
-
-const defaultHeaders: { [key: string]: string } = {
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
+export const apiService = {
+    httpGetService
 };
 
-const defaultOptions: AxiosRequestConfig = {
-    baseURL: baseURL,
-    headers: defaultHeaders,
-};
+interface DefaultOption {
+    headers: {
+        'Content-Type': string;
+        // Add any other headers type
+    };
+}
 
-// Create user instance
-const AxiosInstance: Instance = axios.create(defaultOptions);
-
-// Set the AUTH token for any request
-AxiosInstance.interceptors.request.use(
-    function (config: any){
-        // const token = localStorage.getItem("");
-        // config.headers.accesstoken = token;
-        return config;
-    },
-    function (error): Promise<never> {
-        return Promise.reject(error);
+async function httpGetService(url: string): Promise<any> {
+    // We can set token in headers
+    const defaultOption: DefaultOption = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    };
+    try {
+        const response = await axios(`${process.env.REACT_APP_BACKEND_URL}${url}`, defaultOption);
+        return handleResponse(response);
+    } catch (error) {
+        return handleError(error);
     }
-);
 
-export default AxiosInstance;
+}
+
+function handleResponse(response: AxiosResponse): any {
+    if (response.status >= 200 && response.status < 300) {
+        return response.data;
+    } else {
+        const error = new Error(`Request failed with status ${response.status}`);
+        throw error;
+    }
+}
+
+function handleError(error: unknown) {
+    // Handle errors here (optional)
+    throw error;
+}
